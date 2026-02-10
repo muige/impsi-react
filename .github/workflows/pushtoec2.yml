@@ -1,0 +1,25 @@
+name: Push-to-ec2
+
+on: push
+
+jobs:
+  name: Push to EC2 instance
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@latest
+
+    - name: Deploy to EC2 instance
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        ARGS: "-rzvc -i --delete"
+        SOURCE: "./"
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        TARGET: ${{ secrets.REMOTE_TARGET }}
+        EXCLUDE: "/dist/, /node_modules/"
+        SCRIPT_AFTER: |
+          ls -la
+          echo $RSYNC_STDOUT
