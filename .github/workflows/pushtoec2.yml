@@ -21,6 +21,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
+          SCRIPT_BEFORE: ls
           SCRIPT_AFTER: |
             ls -la
             echo $RSYNC_STDOUT
