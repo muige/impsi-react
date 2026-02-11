@@ -47,7 +47,7 @@ export const conversionCategories = {
         unit: "in",
       },
       {
-        text: "km",
+        text: "kg",
         function: conversions.KgToLbs,
         unit: "lbs",
       },
