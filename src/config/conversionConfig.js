@@ -7,7 +7,7 @@ export const conversionCategories = {
       { text: "Feet", function: conversions.FtToM, unit: "m" },
       { text: "Yards", function: conversions.YdToM, unit: "m" },
       {
-        text: "Yards",
+        text: "Miles",
         function: conversions.MilesToKm,
         unit: "km",
       },
